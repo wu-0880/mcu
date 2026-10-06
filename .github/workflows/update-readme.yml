@@ -1,0 +1,57 @@
+name: Update README Directory Tree
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-tree:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate directory tree
+        run: |
+          {
+            echo '<!-- TREE_START -->'
+            echo '```text'
+            tree -d -I '.git|.github|Debug'
+            echo '```'
+            echo '<!-- TREE_END -->'
+          } > tree_section.txt
+
+      - name: Update README
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          readme = Path("README.md")
+          text = readme.read_text(encoding="utf-8")
+          tree = Path("tree_section.txt").read_text(encoding="utf-8")
+
+          start = "<!-- TREE_START -->"
+          end = "<!-- TREE_END -->"
+
+          if start in text and end in text:
+              before = text.split(start)[0]
+              after = text.split(end, 1)[1]
+              text = before + tree + after
+          else:
+              text += "\n\n## 目錄結構\n\n" + tree
+
+          readme.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Commit README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet || git commit -m "Auto update directory tree"
+          git push
