@@ -70,26 +70,28 @@
 │           ├── Inc
 │           │   └── Legacy
 │           └── Src
-└── LAB5
-    ├── Core
-    │   ├── Inc
-    │   ├── Src
-    │   └── Startup
-    └── Drivers
-        ├── CMSIS
-        │   ├── Device
-        │   │   └── ST
-        │   │       └── STM32G4xx
-        │   │           └── Include
-        │   └── Include
-        └── STM32G4xx_HAL_Driver
-            ├── Inc
-            │   └── Legacy
-            └── Src
+├── LAB5
+│   ├── Core
+│   │   ├── Inc
+│   │   ├── Src
+│   │   └── Startup
+│   └── Drivers
+│       ├── CMSIS
+│       │   ├── Device
+│       │   │   └── ST
+│       │   │       └── STM32G4xx
+│       │   │           └── Include
+│       │   └── Include
+│       └── STM32G4xx_HAL_Driver
+│           ├── Inc
+│           │   └── Legacy
+│           └── Src
+└── docs
 
-82 directories
+83 directories
 ```
 <!-- TREE_END -->
+
 
 
 
