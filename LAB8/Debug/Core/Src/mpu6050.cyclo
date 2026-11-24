@@ -1,0 +1,9 @@
+../Core/Src/mpu6050.c:42:16:to_int16	1
+../Core/Src/mpu6050.c:47:13:go_error	1
+../Core/Src/mpu6050.c:53:6:MPU6050_Start	1
+../Core/Src/mpu6050.c:59:6:MPU6050_Process	19
+../Core/Src/mpu6050.c:133:9:MPU6050_GetRoll	2
+../Core/Src/mpu6050.c:141:9:MPU6050_IsError	1
+../Core/Src/mpu6050.c:147:6:HAL_I2C_MemTxCpltCallback	2
+../Core/Src/mpu6050.c:152:6:HAL_I2C_MemRxCpltCallback	2
+../Core/Src/mpu6050.c:157:6:HAL_I2C_ErrorCallback	2
